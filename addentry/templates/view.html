@@ -1,3 +1,5 @@
+{% extends "main.html" %}
+{% block content %}
 <ul>
     <li \>Physician: {{p.npi}}
     <li \>Board Cert: {{p.board_cert}}
@@ -6,3 +8,4 @@
     <li \>Location: {{p.location}}
     <li \>Rating: {{p.rating}}
 </ul>
+{% endblock %}
