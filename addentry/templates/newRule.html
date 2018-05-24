@@ -11,55 +11,11 @@
   var occupationOptions = [ "Software Engineer", "Biz Dev", "Marketing" ];
 
   function getInitialData(jsonData) {
-    return {"variables": [
-            { "name": "expiration_days",
-              "label": "Days until expiration",
-              "field_type": "numeric",
-              "options": []},
-            { "name": "current_month",
-              "label": "Current Month",
-              "field_type": "string",
-              "options": []},
-            { "name": "goes_well_with",
-              "label": "Goes Well With",
-              "field_type": "select",
-              "options": ["Eggnog", "Cookies", "Beef Jerkey"]}
-                        ],
-          "actions": [
-            { "name": "put_on_sale",
-              "label": "Put On Sale",
-              "params": [{name: "sale_percentage", label: "Sale Percentage", fieldType : "numeric"}]},
-            { "name": "order_more",
-              "label": "Order More",
-              "params": [{name: "number_to_order", label: "Number To Order", fieldType : "numeric"}]}
-          ],
-          "variable_type_operators": {
-            "numeric": [ {"name": "equal_to",
-                          "label": "Equal To",
-                          "input_type": "numeric"},
-                         {"name": "less_than",
-                          "label": "Less Than",
-                          "input_type": "numeric"},
-                         {"name": "greater_than",
-                          "label": "Greater Than",
-                          "input_type": "numeric"}],
-            "string": [ { "name": "equal_to",
-                          "label": "Equal To",
-                          "input_type": "text"},
-                        { "name": "non_empty",
-                          "label": "Non Empty",
-                          "input_type": "none"}],
-            "select": [ { "name": "contains",
-                          "label": "Contains",
-                          "input_type": "select"},
-                        { "name": "does_not_contain",
-                          "label": "Does Not Contain",
-                          "input_type": "select"}]
-          },
-          "data": jsonData,
-    };
-  };
-
+    json = JSON.parse($.trim($("#variables").text()))
+    json["data"] = jsonData
+    console.log(json)
+    return json
+  }
   function onReady() {
     conditions = $("#conditions");
     actions = $("#actions");
@@ -74,6 +30,7 @@
     catch(exception) {
         text = {}
     }
+    console.log(text)
     condData = getInitialData(text["Conditions"]);
     actData = getInitialData(text["Actions"]);
     initializeConditions(condData);
@@ -125,4 +82,7 @@
     <p><button id="submit" class="button-primary">Generate Rule Data</button></p>
 <input type="submit" value="submit" id="">
 </form>
+<div id="variables" hidden="true">
+    {{ data }}
+</div>
 {% endblock %}

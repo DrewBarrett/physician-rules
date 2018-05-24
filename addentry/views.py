@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.list import ListView
 from business_rules import export_rule_data
+import json
 from .forms import PhysicianForm, RuleForm
 from .models import Physician, Rule
 from .rules import ProductVariables, ProductActions
@@ -30,7 +31,7 @@ class ruleList(ListView):
     model = Rule
     template_name = 'ruleList.html'
 def newRule(request):
-    data = export_rule_data(ProductVariables, ProductActions)
+    data = json.dumps(export_rule_data(ProductVariables, ProductActions))
     if request.method == 'POST':
         form = RuleForm(request.POST)
     else:
