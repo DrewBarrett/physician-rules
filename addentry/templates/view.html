@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Physician View</h1>
 <div class='row'>
-    <div class='five columns'>
+    <div class='six columns'>
         <ul>
             <li \>NPI: {{p.npi}}
             <li \>Board Cert: {{p.board_cert}}
@@ -12,7 +12,7 @@
             <li \>Rating: {{p.rating}}
         </ul>
     </div>
-    <div class='five columns'>
+    <div class='six columns'>
         <ul>
             <li \>NPI Results: {{p.npi_results}}
             <li \>Board Cert Results: {{p.board_results}}
@@ -23,4 +23,7 @@
         </ul>
     </div>
 </div>
+<center>
+    <a class="button button-primary" href="{}">Run rules-engine</a>
+</center>
 {% endblock %}
