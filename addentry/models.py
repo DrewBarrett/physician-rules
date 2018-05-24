@@ -23,9 +23,32 @@ class Physician(models.Model):
                                 max_length=256)
 
     # the model to hold the results of the rules engine
-    rule_results = models.CharField(blank=True,
-                                    editable=False,
-                                    max_length=256)
+    npi_results = models.CharField(blank=True,
+                                   editable=False,
+                                   max_length=256,
+                                   default="No output, check your rules or re-run them by using the button")
+    board_results = models.CharField(blank=True,
+                                     editable=False,
+                                     max_length=256,default="No output, check your rules or re-run them by using the button")
+    age_results = models.CharField(blank=True,
+                                   editable=False,
+                                   max_length=256,
+                                   default="No output, check your rules or re-run them by using the button")
+    rating_results = models.CharField(blank=True,
+                                      editable=False,
+                                      max_length=256,
+                                      default="No output, check your rules or re-run them by using the button")
+    language_results = models.CharField(blank=True,
+                                        editable=False,
+                                        max_length=256,
+                                        default="No output, check your rules or re-run them by using the button")
+    location_results = models.CharField(blank=True,
+                                        editable=False,
+                                        max_length=256,
+                                        default="No output, check your rules or re-run them by using the button")
+
+
+
 
     def __str__(self):
         return("""NPI: %s\n
