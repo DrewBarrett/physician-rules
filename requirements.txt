@@ -1,3 +1,4 @@
 business-rules==1.0.1
 Django==2.0.5
 django-heroku==0.3.1
+gunicorn==19.8.1
