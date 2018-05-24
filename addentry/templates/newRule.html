@@ -31,8 +31,8 @@
         text = {}
     }
     console.log(text)
-    condData = getInitialData(text["Conditions"]);
-    actData = getInitialData(text["Actions"]);
+    condData = getInitialData(text["conditions"]);
+    actData = getInitialData(text["actions"]);
     initializeConditions(condData);
     initializeActions(actData);
     initializeForm();
@@ -57,8 +57,8 @@
       var cond = conditions.conditionsBuilder("data");
       var act = actions.actionsBuilder("data");
       var json = {
-        "Conditions": cond,
-        "Actions": act
+        "conditions": cond,
+        "actions": act
       }
       console.log(JSON.stringify(json));
       textField.text(JSON.stringify(json));
@@ -71,7 +71,7 @@
 {% block content %}
 <h1>Rule Editor</h1>
 {% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
-<form class="" action="{% url 'new-rule' %}" method="post">
+<form class="" action="{{ url }}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <h3>When these conditions are met...</h3>
