@@ -1,12 +1,26 @@
 {% extends "main.html" %}
 {% block content %}
 <h1>Physician View</h1>
-<ul>
-    <li \>NPI: {{p.npi}}
-    <li \>Board Cert: {{p.board_cert}}
-    <li \>Age: {{p.age}}
-    <li \>Language: {{p.langauge}}
-    <li \>Location: {{p.location}}
-    <li \>Rating: {{p.rating}}
-</ul>
+<div class='row'>
+    <div class='five columns'>
+        <ul>
+            <li \>NPI: {{p.npi}}
+            <li \>Board Cert: {{p.board_cert}}
+            <li \>Age: {{p.age}}
+            <li \>Language: {{p.language}}
+            <li \>Location: {{p.location}}
+            <li \>Rating: {{p.rating}}
+        </ul>
+    </div>
+    <div class='five columns'>
+        <ul>
+            <li \>NPI Results: {{p.npi_results}}
+            <li \>Board Cert Results: {{p.board_results}}
+            <li \>Age Results: {{p.age_results}}
+            <li \>Language Results: {{p.language_results}}
+            <li \>Location Results: {{p.location_results}}
+            <li \>Rating Results: {{p.rating_results}}
+        </ul>
+    </div>
+</div>
 {% endblock %}
