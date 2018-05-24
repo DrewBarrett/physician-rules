@@ -1,1 +1,1 @@
-web: gunicorn physician-rules.wsgi
+web: gunicorn physicianrules.wsgi
