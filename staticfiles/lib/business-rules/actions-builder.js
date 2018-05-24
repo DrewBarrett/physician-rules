@@ -47,7 +47,12 @@
         var params = [actionObj];
         var field;
         while(field = params.shift()) {
-          actionDiv.find(":input[name='" + field.name + "']").val(field.value).change();
+          try{
+            actionDiv.find(":input[name='" + field.name + "']").val(field.value).change();
+          }
+          catch(error) {
+            console.log(error);
+          }
           if(field.params) params = params.concat(field.params);
         }
         container.append(actionDiv);

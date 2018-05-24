@@ -13,5 +13,5 @@ class RuleForm(ModelForm):
         model = Rule
         fields = '__all__'
         widgets = {
-            'content': Textarea(attrs={'disabled': 'disabled'})
+            'content': Textarea(attrs={'hidden': 'true', 'id': 'textField'})
         }
