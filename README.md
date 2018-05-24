@@ -13,3 +13,7 @@
     ```
     export SECRET_KEY=donttellanyoneok
     ```
+1. Run development server
+    ```
+    python manage.py runserver
+    ```
