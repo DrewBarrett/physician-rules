@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% load static %}
+{% block head %}
+<script src="{% static "lib/vendor/jquery.js" %}" charset="utf-8"></script>
+<script src="{% static "lib/business-rules/conditions-builder.js" %}" charset="utf-8"></script>
+<script src="{% static "lib/business-rules/actions-builder.js" %}" charset="utf-8"></script>
+{% endblock %}
+{% block content %}
+<h1>Rule Editor</h1>
+{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+<form class="" action="{% url 'new-rule' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h3>When these conditions are met...</h3>
+    <div id="conditions"></div>
+
+    <h3>Do these actions...</h3>
+    <div id="actions"></div>
+<input type="submit" value="submit" id="">
+</form>
+{% endblock %}

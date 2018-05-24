@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-# Create your models here.
+
+# Table for storing physican data
 class Physician(models.Model):
     npi = models.PositiveIntegerField(help_text="A number between 1000000000 and 1999999999",
                                       primary_key=True,
@@ -57,3 +58,8 @@ class Physician(models.Model):
                   Language: %s\n
                   Location: %s\n
                   Rating: %d\n""" % (self.npi, self.board_cert, self.age, self.language, self.location, self.rating))
+
+class Rule(models.Model):
+    name = models.CharField(help_text="The name of your rule",
+                            max_length=256)
+    content = models.TextField(editable=True)

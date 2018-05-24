@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.list import ListView
-from .forms import PhysicianForm
-from .models import Physician
+from .forms import PhysicianForm, RuleForm
+from .models import Physician, Rule
 
 # Create your views here.
 def index(request):
@@ -24,4 +24,12 @@ def view(request, physicianId):
 class list(ListView):
     model = Physician
     template_name = 'list.html'
-
+class ruleList(ListView):
+    model = Rule
+    template_name = 'ruleList.html'
+def newRule(request):
+    if request.method == 'POST':
+        form = RuleForm(request.POST)
+    else:
+        form = RuleForm()
+    return render(request, 'newRule.html', {'form': form})
