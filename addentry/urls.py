@@ -7,4 +7,5 @@ urlpatterns = [
     path('submit/', views.entry, name='entry'),
     path('submit/post/', views.submitEntry, name='submit'),
     path('view/<int:physicianId>/', views.view, name='view'),
+    path('view/', views.list.as_view(), name='list'),
 ]

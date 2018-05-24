@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic.list import ListView
 from .forms import PhysicianForm
 from .models import Physician
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -19,5 +21,7 @@ def submitEntry(request):
 def view(request, physicianId):
     p = get_object_or_404(Physician, pk=physicianId)
     return render(request, 'view.html', {'p': p})
-
+class list(ListView):
+    model = Physician
+    template_name = 'list.html'
 

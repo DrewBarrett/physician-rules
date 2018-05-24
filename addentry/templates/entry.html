@@ -1,9 +1,10 @@
 {% extends "main.html" %}
 {% block content %}
+<h1>Submit a new Physician</h1>
 {% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
 <form class="" action="{% url 'submit' %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" value="submit" id="">
 </form>
 {% endblock %}
