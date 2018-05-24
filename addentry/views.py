@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.list import ListView
+from business_rules import export_rule_data
 from .forms import PhysicianForm, RuleForm
 from .models import Physician, Rule
+from .rules import ProductVariables, ProductActions
 
 # Create your views here.
 def index(request):
@@ -28,8 +30,9 @@ class ruleList(ListView):
     model = Rule
     template_name = 'ruleList.html'
 def newRule(request):
+    data = export_rule_data(ProductVariables, ProductActions)
     if request.method == 'POST':
         form = RuleForm(request.POST)
     else:
         form = RuleForm()
-    return render(request, 'newRule.html', {'form': form})
+    return render(request, 'newRule.html', {'form': form, 'data': data})
