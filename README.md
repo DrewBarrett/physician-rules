@@ -6,6 +6,10 @@ python3 -m venv env
 source env/bin/activate
 ```
 1. Install required modules
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
 1. Place your secret key as an environment variable
-`export SECRET_KEY=donttellanyoneok`
+```
+export SECRET_KEY=donttellanyoneok
+```
