@@ -26,7 +26,7 @@ class ProductVariables(variables.BaseVariables):
 
     @variables.select_rule_variable(label='Board Certified', options=['True','False'])
     def board(self):
-        return self.product.board_cert
+        return str(self.product.board_cert)
 
 class ProductActions(actions.BaseActions):
     def __init__(self, product):
@@ -36,22 +36,27 @@ class ProductActions(actions.BaseActions):
     def set_age_results(self, description):
         self.product.age_results = description
         self.product.save()
+
     @actions.rule_action(params={"description": fields.FIELD_TEXT})
     def set_npi_results(self, description):
         self.product.npi_results = description
         self.product.save()
+
     @actions.rule_action(params={"description": fields.FIELD_TEXT})
     def set_rating_results(self, description):
         self.product.rating_results = description
         self.product.save()
+
     @actions.rule_action(params={"description": fields.FIELD_TEXT})
     def set_location_results(self, description):
         self.product.location_results = description
         self.product.save()
+
     @actions.rule_action(params={"description": fields.FIELD_TEXT})
     def set_language_results(self, description):
         self.product.language_results = description
         self.product.save()
+
     @actions.rule_action(params={"description": fields.FIELD_TEXT})
     def set_board_cert_results(self, description):
         self.product.board_results = description
